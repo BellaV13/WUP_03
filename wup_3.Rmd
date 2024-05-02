@@ -39,23 +39,24 @@ seat is a categorical variable
 
 So we use the numerical~cat helper file.
 
-## Now with ggplot - first select the basic data
+#Description
+
+##Graphical Description
 
 ```{r}
-basicCN <- ggplot(davisdata,aes(y=alcohol,x=Seat))
+boxplot(alcohol~Seat,data=davisdata)
 ```
-## Now add in boxplot
+
+
+This box plot shows me that there is a significant difference within the back rows when it comes to consumption vs the middle. Based on the plot, the students in the back row seem to take in more alcohol. 
+
+##Numerical Description
 
 ```{r}
-basicCN + geom_boxplot()
+favstats(alcohol~Seat,data=davisdata)
 ```
-  
-  
-### get fancy  
 
-```{r}
-basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Fancy notch boxplot \n with 2 lines")
-```
+From what the table shows me the back row has a mean of 9.6, the front row having a mean of 1.8 and the middle row with 3.2. showing that the students in the back rows drink more frequently. 
 
 ## Numerical Summarys 
 
