@@ -58,10 +58,24 @@ favstats(alcohol~Seat,data=davisdata)
 
 From what the table shows me the back row has a mean of 9.6, the front row having a mean of 1.8 and the middle row with 3.2. showing that the students in the back rows drink more frequently. 
 
-## Numerical Summarys 
 
-## Inferential Tests
+## Inferential Description
+
+```{r}
+model1 <- aov(alcohol~Seat,data=davisdata)
+summary.aov(model1)
+```
+
+
+The p-value shows to be 0.000116. which means that students in every row do not consume the same amount of alcohol. 
+
+```{r}
+plot(TukeyHSD(model1))
+```
+
+Using the Tukey HSD test I found that people seated in the back rows drink more vs the people in the middle and front. there seems to be no difference in the alcohol consumption between the middle ad front rows. 
+
 
 ## Conclusions
 
-
+I am trying to see if there happens to be a difference in students who in take alcohol in rows 1,2, and 3. With the p-value of 0.000116 which is less than 0.05 makes me reject the null hypothesis, once the graph are read it is known that the students in the back row drink more. 
